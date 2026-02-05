@@ -1,5 +1,8 @@
 # my addition
 *.parquet
+.vscode
+*.yaml
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
