@@ -5,6 +5,7 @@
 service-account.json
 .env_encoded
 dbt_project.yml
+applied-shade-485904-c9-bdff2805ae75.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

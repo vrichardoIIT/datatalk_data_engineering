@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: 'Raw data source for staging models'
+    database: applied-shade-485904-c9
+    schema: zoomcamp_module_3
+    tables:
+      - name: yellow_taxi_2024
+      - name: yellow_taxi_2024_optimized
+
