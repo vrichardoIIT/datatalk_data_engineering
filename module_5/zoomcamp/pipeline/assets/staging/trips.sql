@@ -6,11 +6,11 @@
 # - Custom checks: https://getbruin.com/docs/bruin/quality/custom
 
 # TODO: Set the asset name (recommended: staging.trips).
-name: TODO_SET_ASSET_NAME
+name: staging.trips
 # TODO: Set platform type.
 # Docs: https://getbruin.com/docs/bruin/assets/sql
 # suggested type: duckdb.sql
-type: TODO
+type: duckdb.sql
 
 # TODO: Declare dependencies so `bruin run ... --downstream` and lineage work.
 # Examples:
@@ -18,8 +18,8 @@ type: TODO
 #   - ingestion.trips
 #   - ingestion.payment_lookup
 depends:
-  - TODO_DEP_1
-  - TODO_DEP_2
+  - ingestion.trips
+  - ingestion.payment_lookup
 
 # TODO: Choose time-based incremental processing if the dataset is naturally time-windowed.
 # - This module expects you to use `time_interval` to reprocess only the requested window.
