@@ -47,36 +47,20 @@ materialization:
   # - delete+insert (refresh partitions based on incremental_key values)
   # - merge (upsert based on primary key)
   # - time_interval (refresh rows within a time window)
-  strategy: TODO
-  # TODO: set incremental_key to your event time column (DATE or TIMESTAMP).
-  incremental_key: TODO_SET_INCREMENTAL_KEY
-  # TODO: choose `date` vs `timestamp` based on the incremental_key type.
-  time_granularity: TODO_SET_GRANULARITY
+
 
 # TODO: Define output columns, mark primary keys, and add a few checks.
-columns:
-  - name: TODO_pk1
-    type: TODO
-    description: TODO
-    primary_key: true
-    nullable: false
-    checks:
-      - name: not_null
-  - name: TODO_metric
-    type: TODO
-    description: TODO
-    checks:
-      - name: non_negative
+
 
 # TODO: Add one custom check that validates a staging invariant (uniqueness, ranges, etc.)
 # Docs: https://getbruin.com/docs/bruin/quality/custom
 custom_checks:
-  - name: TODO_custom_check_name
-    description: TODO
+  - name: row_count_positive
+    description: Make sure table is not empty after staging.
     query: |
       -- TODO: return a single scalar (COUNT(*), etc.) that should match `value`
-      SELECT 0
-    value: 0
+      SELECT COUNT(*) > 0 FROM staging.trips
+    value: 1
 
 @bruin */
 
