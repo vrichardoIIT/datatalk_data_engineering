@@ -2,10 +2,61 @@ version: 2
 
 sources:
   - name: raw_data
-    description: 'Raw data source for staging models'
-    database: applied-shade-485904-c9
-    schema: zoomcamp_module_3
+    description: Raw taxi trip data from NYC TLC
+    database: |
+      {%- if target.type == 'bigquery' -%}
+        {{ env_var('GCP_PROJECT_ID', 'applied-shade-485904-c9') }}
+      {%- else -%}
+        taxi_rides_ny
+      {%- endif -%}
+    schema: |
+      {%- if target.type == 'bigquery' -%}
+        zoomcamp_module_3
+      {%- else -%}
+        prod
+      {%- endif -%}
     tables:
       - name: yellow_taxi_2024
-      - name: yellow_taxi_2024_optimized
+        description: Raw yellow taxi trip records
+        columns:
+          - name: vendorid
+            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
+          - name: tpep_pickup_datetime
+            description: Date and time when the meter was engaged
+          - name: tpep_dropoff_datetime
+            description: Date and time when the meter was disengaged
+          - name: passenger_count
+            description: Number of passengers in the vehicle
+          - name: trip_distance
+            description: Trip distance in miles
+          - name: pulocationid
+            description: TLC Taxi Zone where the meter was engaged
+          - name: dolocationid
+            description: TLC Taxi Zone where the meter was disengaged
+          - name: ratecodeid
+            description: Rate code (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
+          - name: store_and_fwd_flag
+            description: Trip record held in vehicle memory (Y/N)
+          - name: payment_type
+            description: Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)
+          - name: fare_amount
+            description: Time and distance fare
+          - name: extra
+            description: Miscellaneous extras and surcharges
+          - name: mta_tax
+            description: MTA tax
+          - name: tip_amount
+            description: Tip amount (credit card only)
+          - name: tolls_amount
+            description: Total tolls paid
+          - name: improvement_surcharge
+            description: Improvement surcharge
+          - name: total_amount
+            description: Total amount charged
+        config:
+          loaded_at_field: tpep_pickup_datetime
+    config:
+      freshness:
+        warn_after: {count: 24, period: hour}
+        error_after: {count: 48, period: hour}
 
