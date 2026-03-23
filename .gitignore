@@ -5,6 +5,8 @@
 service-account.json
 .env_encoded
 dbt_cloud.yml
+dbt_project.yml
+applied-shade-485904-c9-bdff2805ae75.json
 *.db
 
 # Byte-compiled / optimized / DLL files
@@ -222,7 +224,10 @@ target/
 dbt_packages/
 logs/
 # end dbt Cloud content
+<<<<<<< HEAD
+=======
 dbt_internal_packages/
+>>>>>>> 60e04fdfddb669d8f81547bd29014c620a103b6a
 =======
 .bruin.yml
 logs/runs
