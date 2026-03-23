@@ -227,3 +227,10 @@ logs/
 <<<<<<< HEAD
 =======
 dbt_internal_packages/
+>>>>>>> 60e04fdfddb669d8f81547bd29014c620a103b6a
+=======
+.bruin.yml
+logs/runs
+logs/*.log
+*.py[cod]
+>>>>>>> ee2cdc5 (module_5 part 3)
