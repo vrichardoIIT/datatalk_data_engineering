@@ -4,8 +4,10 @@
 *.yaml
 service-account.json
 .env_encoded
+dbt_cloud.yml
 dbt_project.yml
 applied-shade-485904-c9-bdff2805ae75.json
+*.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -215,6 +217,7 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+<<<<<<< HEAD
 # Default .gitignore content added by dbt Cloud# you shouldn't commit these into source control
 # these are the default directory names, adjust/add to fit your needs
 target/
@@ -224,4 +227,3 @@ logs/
 <<<<<<< HEAD
 =======
 dbt_internal_packages/
->>>>>>> 60e04fdfddb669d8f81547bd29014c620a103b6a

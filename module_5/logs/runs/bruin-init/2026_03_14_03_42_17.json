@@ -1,0 +1,56 @@
+{
+  "cmdline": [
+    "bruin",
+    "run",
+    "--start-date",
+    "2026-03-12T00:00:00.000Z",
+    "--end-date",
+    "2026-03-12T23:59:59.999999999Z",
+    "--environment",
+    "default",
+    "/workspaces/datatalk_data_engineering/first_pipeline/assets/player_stats.sql"
+  ],
+  "parameters": {
+    "downstream": false,
+    "startDate": "2026-03-12T00:00:00.000Z",
+    "endDate": "2026-03-12T23:59:59.999999999Z",
+    "workers": 16,
+    "environment": "default",
+    "force": false,
+    "pushMetadata": false,
+    "noLogFile": false,
+    "fullRefresh": false,
+    "tag": "",
+    "excludeTag": "",
+    "only": [],
+    "output": "",
+    "expUseWingetForUv": false,
+    "configFilePath": "",
+    "sensorMode": "",
+    "applyIntervalModifiers": false,
+    "annotations": "",
+    "useGong": false
+  },
+  "metadata": {
+    "version": "v0.11.487",
+    "os": "linux"
+  },
+  "state": [
+    {
+      "name": "my_python_asset",
+      "status": "skipped"
+    },
+    {
+      "name": "dataset.player_stats",
+      "status": "succeeded"
+    },
+    {
+      "name": "dataset.players",
+      "status": "skipped"
+    }
+  ],
+  "version": "1.0.0",
+  "timestamp": "2026-03-14T03:42:18.206196953Z",
+  "run_id": "2026_03_14_03_42_17",
+  "compatibility_hash": "4cc411ea1d7a9e487a84f91ee529275fc46385f87b15b3b00bef9979e422d614"
+}
